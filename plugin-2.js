@@ -1,14 +1,13 @@
 //plugin-2
-const { SyncHook } = require("tapable");
 
-function plugin2() {
-
-}
-
-plugin2.prototype.apply = function (compiler) {
-    compiler.hooks.myPlugin.tap('1234', (data) => {
-        console.log('@Listen4Myplugin', data)
-    })
+class plugin2 {
+    constructor(option) {
+        console.log('plugin2初始化')
+        this.option = option
+    }
+    apply(compiler) {
+        console.log('plugin2 apply被调用')
+    }
 }
 
 module.exports = plugin2
