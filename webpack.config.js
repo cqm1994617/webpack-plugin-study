@@ -3,12 +3,12 @@
 class plugin1 {
   constructor(option) {
     this.option = option
-    console.log('plugin1初始化')
+    console.log(option.name + '初始化', Date.now())
   }
   apply(compiler) {
-    console.log('plugin1 apply被调用')
+    console.log(this.option.name + ' apply被调用', Date.now())
     compiler.hooks.done.tap('plugin1', (compiler) => {
-      console.log(this.option)
+      console.log(this.option, Date.now())
     })
   }
 }
@@ -16,10 +16,10 @@ class plugin1 {
 class plugin2 {
   constructor(option) {
     this.option = option
-    console.log('plugin2初始化')
+    console.log(option.name + '初始化', Date.now())
   }
   apply(compiler) {
-    console.log('plugin2 apply被调用')
+    console.log(this.option.name + ' apply被调用', Date.now())
   }
 }
 
